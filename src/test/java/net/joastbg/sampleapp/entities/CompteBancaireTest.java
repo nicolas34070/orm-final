@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nico
+ * @author Valentin
  */
 public class CompteBancaireTest {
     
@@ -44,7 +44,6 @@ public class CompteBancaireTest {
     public void testGetIban() {
         System.out.println("getIban");
         CompteBancaire instance = new CompteBancaire();
-        instance.setIban("FR7612548029980000000150086");
         String expResult = "FR7612548029980000000150086";
         String result = instance.getIban();
         assertEquals(expResult, result);
@@ -57,8 +56,7 @@ public class CompteBancaireTest {
     public void testGetBIC() {
         System.out.println("getBIC");
         CompteBancaire instance = new CompteBancaire();
-        instance.setBIC("FR15ZSDZ");
-        String expResult = "FR15ZSDZ";
+        String expResult = "612548029980000000150086";
         String result = instance.getBIC();
         assertEquals(expResult, result);
     }
@@ -70,10 +68,8 @@ public class CompteBancaireTest {
     public void testGetProprietaire() {
         System.out.println("getProprietaire");
         CompteBancaire instance = new CompteBancaire();
-        instance.setProprietaire("Nicolas");
-        String expResult = "Nicolas";
-        String result = instance.getProprietaire();
+        Client expResult = null;
+        Client result = instance.getProprietaire();
         assertEquals(expResult, result);
     }
-    
 }

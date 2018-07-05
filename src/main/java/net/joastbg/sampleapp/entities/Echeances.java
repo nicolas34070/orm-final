@@ -10,7 +10,7 @@ public class Echeances {
     private Date emissionFacture;
     
     public void impressionEcheancier(){
-        System.out.println("Impression");
+        System.out.println("Impression...");
     }
     
     /**

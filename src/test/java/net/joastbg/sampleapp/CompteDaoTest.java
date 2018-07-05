@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration("/spring/config/BeanLocations.xml")
 public class CompteDaoTest {
 
-
     @Autowired
     CompteDao compteDao;
 
@@ -30,6 +29,7 @@ public class CompteDaoTest {
     public void setUp() {
         compte = new CompteBancaire();
         compte.setIban("FR7612548029980000000150086");
+        compte.setBIC("612548029980000000150086");
         compte.setProprietaire("Cathy Catou");
     }
 

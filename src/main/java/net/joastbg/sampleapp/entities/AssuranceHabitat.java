@@ -6,8 +6,6 @@ public class AssuranceHabitat extends Assurance {
 
     private String adresseAssure;
     private int valeurCouverture;
-    private Sinistre[] mesSinistres;
-    private int nbSinistres;
     
     /**
      * @return the adresseAssure
@@ -37,10 +35,11 @@ public class AssuranceHabitat extends Assurance {
         this.valeurCouverture = valeurCouverture;
     }
     
-    public void nouveauSinistre(Date p_dateSinistre, String p_titreSinistre, String p_descriptionSinistre){
-        mesSinistres[nbSinistres].setDateSinistre(p_dateSinistre);
-        mesSinistres[nbSinistres].setTitreSinistre(p_titreSinistre);
-        mesSinistres[nbSinistres].setDescriptionSinistre(p_descriptionSinistre);
-        nbSinistres++;
+    public void addSinistre(String date, String titre, String descri) {
+        listeSinitre.add(new Sinistre(date, titre, descri));
+    }
+    
+    public void resilierContrat() {
+        this.contratResiliserAnniversaire = true;
     }
 }

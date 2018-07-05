@@ -1,18 +1,19 @@
 package net.joastbg.sampleapp.entities;
 
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class AssuranceAuto extends Assurance {
 
     private String Immatriculation;
     private int BonusMalus;
     private String conducteurPrimaire;
-    private String conducteurSecondaire;
-    private Sinistre[] mesSinistres;
-    private int nbSinistres;
+    private List<String> conducteurSecondaire;
     
     public AssuranceAuto(){
-        nbSinistres = 0;
+        conducteurSecondaire = new ArrayList<String>();
     }
     
     /**
@@ -46,15 +47,12 @@ public class AssuranceAuto extends Assurance {
     /**
      * @return the conducteurSecondaire
      */
-    public String getConducteurSecondaire() {
+    public List<String> getConducteurSecondaire() {
         return conducteurSecondaire;
     }
 
-    /**
-     * @param conducteurSecondaire the conducteurSecondaire to set
-     */
-    public void setConducteurSecondaire(String conducteurSecondaire) {
-        this.conducteurSecondaire = conducteurSecondaire;
+    public void addConducteurSecondaire(String conducteurSecondaire) {
+        this.conducteurSecondaire.add(conducteurSecondaire);
     }
 
     /**
@@ -71,13 +69,27 @@ public class AssuranceAuto extends Assurance {
         this.conducteurPrimaire = conducteurPrimaire;
     }
 
-    public void nouveauSinistre(Date p_dateSinistre, String p_titreSinistre, String p_descriptionSinistre, String p_imageSinistre){
-        mesSinistres[nbSinistres].setDateSinistre(p_dateSinistre);
-        mesSinistres[nbSinistres].setTitreSinistre(p_titreSinistre);
-        mesSinistres[nbSinistres].setDescriptionSinistre(p_descriptionSinistre);
-        mesSinistres[nbSinistres].setImageSinistre(p_imageSinistre);
-        nbSinistres++;
+    public void addSinistre(String date, String titre, String descri, String image) {
+        listeSinitre.add(new Sinistre(date, titre, descri, image));
     }
-
     
+    public void resilierContrat() {
+        this.contratResiliserAnniversaire = true;
+    }
+    
+    public List<Client> getClientAnniversaireTroisMois() throws ParseException {
+        List<Client> listeClientAnniversaire = new ArrayList<Client>();
+        Date dateNow = new Date();
+        
+        for(Client c : this.listeClient) {
+            
+            long dateAnniversaire = c.getAssuranceAuto().getDateAnniversaire().getTime();
+            
+            if(dateAnniversaire >= dateNow.getTime() && dateAnniversaire <= getMonths(3).getTime()) {
+                listeClientAnniversaire.add(c);
+            }
+        }
+        
+        return listeClientAnniversaire;
+    }
 }

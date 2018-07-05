@@ -12,18 +12,18 @@ import java.util.Date;
  * @author Nico
  */
 public class Sinistre {
-    private Date dateSinistre;
+    private String dateSinistre;
     private String titreSinistre;
     private String descriptionSinistre;
     private String imageSinistre;
     
-    public Sinistre(Date p_dateSinistre, String p_titreSinistre, String p_descriptionSinistre){
+    public Sinistre(String p_dateSinistre, String p_titreSinistre, String p_descriptionSinistre){
         setDateSinistre(p_dateSinistre);
         setTitreSinistre(p_titreSinistre);
         setDescriptionSinistre(p_descriptionSinistre);
     }
     
-    public Sinistre(Date p_dateSinistre, String p_titreSinistre, String p_descriptionSinistre, String p_imageSinistre){
+    public Sinistre(String p_dateSinistre, String p_titreSinistre, String p_descriptionSinistre, String p_imageSinistre){
         setDateSinistre(p_dateSinistre);
         setTitreSinistre(p_titreSinistre);
         setDescriptionSinistre(p_descriptionSinistre);
@@ -33,14 +33,14 @@ public class Sinistre {
     /**
      * @return the dateSinistre
      */
-    public Date getDateSinistre() {
+    public String getDateSinistre() {
         return dateSinistre;
     }
 
     /**
      * @param dateSinistre the dateSinistre to set
      */
-    public void setDateSinistre(Date dateSinistre) {
+    public void setDateSinistre(String dateSinistre) {
         this.dateSinistre = dateSinistre;
     }
 

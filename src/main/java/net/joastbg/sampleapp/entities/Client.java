@@ -1,80 +1,82 @@
 package net.joastbg.sampleapp.entities;
 
-
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client  {
-
+    
     private int identifiant;
     private List<CompteBancaire> listeCompteBancaire;
     private Contact contact;
-    private Assurance assurance;
+    private AssuranceAuto assuranceAuto;
+    private AssuranceHabitat assuranceHabitat;
+
+    private String fullName;
     
-    /**
-     * @return the identifiant
-     */
+    public Client() {
+        listeCompteBancaire = new ArrayList<CompteBancaire>();
+    }
+    
+    public String getFullName() {
+        return this.fullName;
+    }
+    
+    public void setFullName(String s) {
+        this.fullName = s;
+    }
+    
     public int getIdentifiant() {
         return identifiant;
     }
 
-    /**
-     * @param identifiant the identifiant to set
-     */
     public void setIdentifiant(int identifiant) {
         this.identifiant = identifiant;
     }
     
+    public void setComptePrincipale(CompteBancaire c) {
+        if(listeCompteBancaire.contains(c)) {
+            c.setIsProprietaire();
+        }
+    }
+    
+    public void addCompteBancaire(CompteBancaire c) {
+        listeCompteBancaire.add(c);
+    }
+    
     public void genererEcheancierSixMois() throws ParseException {
-        List<Echeances> listeEcheance = getAssurance().getEcheanceSixMois();
-        for(Echeances e : listeEcheance) {
+        List<Echeances> listeEcheanceAuto = assuranceAuto.getEcheanceSixMois();
+        for(Echeances e : listeEcheanceAuto) {
+            e.impressionEcheancier();
+        }
+        
+        List<Echeances> listeEcheanceHabitat = assuranceAuto.getEcheanceSixMois();
+        for(Echeances e : listeEcheanceHabitat) {
             e.impressionEcheancier();
         }
     }
-
-    /**
-     * @return the listeCompteBancaire
-     */
-    public List<CompteBancaire> getListeCompteBancaire() {
-        return listeCompteBancaire;
-    }
-
-    /**
-     * @param listeCompteBancaire the listeCompteBancaire to set
-     */
-    public void setListeCompteBancaire(List<CompteBancaire> listeCompteBancaire) {
-        this.listeCompteBancaire = listeCompteBancaire;
-    }
-
-    /**
-     * @return the contact
-     */
-    public Contact getContact() {
-        return contact;
-    }
-
-    /**
-     * @param contact the contact to set
-     */
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    /**
-     * @return the assurance
-     */
-    public Assurance getAssurance() {
-        return assurance;
-    }
-
-    /**
-     * @param assurance the assurance to set
-     */
-    public void setAssurance(Assurance assurance) {
-        this.assurance = assurance;
+    
+    public void declarerSinistre(String date, String titre, String descri) {
+        assuranceHabitat.addSinistre(date, titre, descri);
     }
     
+    public void declarerSinistre(String date, String titre, String descri, String image) {
+        assuranceAuto.addSinistre(date, titre, descri, image);
+    }
+    
+    public void resilierContratAuto() {
+        assuranceAuto.resilierContrat();
+    }
+    
+    public void resilierContratHabitat() {
+        assuranceHabitat.resilierContrat();
+    }
+    
+    public AssuranceAuto getAssuranceAuto() {
+        return this.assuranceAuto;
+    }
+    
+    public AssuranceHabitat getAssuranceHabitat() {
+        return this.assuranceHabitat;
+    }
 }
-
-
-

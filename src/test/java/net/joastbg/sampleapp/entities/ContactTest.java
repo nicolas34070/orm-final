@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nico
+ * @author Valentin
  */
 public class ContactTest {
     
@@ -44,8 +44,7 @@ public class ContactTest {
     public void testGetType() {
         System.out.println("getType");
         Contact instance = new Contact();
-        instance.setType("test");
-        String expResult = "test";
+        String expResult = "";
         String result = instance.getType();
         assertEquals(expResult, result);
     }
@@ -57,8 +56,7 @@ public class ContactTest {
     public void testGetValeur() {
         System.out.println("getValeur");
         Contact instance = new Contact();
-        instance.setValeur("valeur test");
-        String expResult = "valeur test";
+        String expResult = "";
         String result = instance.getValeur();
         assertEquals(expResult, result);
     }
@@ -70,8 +68,7 @@ public class ContactTest {
     public void testGetMail() {
         System.out.println("getMail");
         Contact instance = new Contact();
-        instance.setMail("blablabla@epsi.fr");
-        String expResult = "blablabla@epsi.fr";
+        String expResult = "";
         String result = instance.getMail();
         assertEquals(expResult, result);
     }
@@ -83,8 +80,7 @@ public class ContactTest {
     public void testGetTelephonePortable() {
         System.out.println("getTelephonePortable");
         Contact instance = new Contact();
-        instance.setTelephonePortable("0654875412");
-        String expResult = "0654875412";
+        String expResult = "";
         String result = instance.getTelephonePortable();
         assertEquals(expResult, result);
     }
@@ -96,8 +92,7 @@ public class ContactTest {
     public void testGetTelephoneFixe() {
         System.out.println("getTelephoneFixe");
         Contact instance = new Contact();
-        instance.setTelephoneFixe("0467847547");
-        String expResult = "0467847547";
+        String expResult = "";
         String result = instance.getTelephoneFixe();
         assertEquals(expResult, result);
     }

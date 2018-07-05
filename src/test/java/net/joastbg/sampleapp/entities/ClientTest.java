@@ -5,7 +5,6 @@
  */
 package net.joastbg.sampleapp.entities;
 
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nico
+ * @author Valentin
  */
 public class ClientTest {
     
@@ -39,6 +38,18 @@ public class ClientTest {
     }
 
     /**
+     * Test of getFullName method, of class Client.
+     */
+    @Test
+    public void testGetFullName() {
+        System.out.println("getFullName");
+        Client instance = new Client();
+        String expResult = "";
+        String result = instance.getFullName();
+        assertEquals(expResult, result);
+    }
+
+    /**
      * Test of getIdentifiant method, of class Client.
      */
     @Test
@@ -48,21 +59,17 @@ public class ClientTest {
         int expResult = 0;
         int result = instance.getIdentifiant();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setIdentifiant method, of class Client.
+     * Test of addCompteBancaire method, of class Client.
      */
     @Test
-    public void testSetIdentifiant() {
-        System.out.println("setIdentifiant");
-        int identifiant = 0;
+    public void testAddCompteBancaire() {
+        System.out.println("addCompteBancaire");
+        CompteBancaire c = null;
         Client instance = new Client();
-        instance.setIdentifiant(identifiant);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.addCompteBancaire(c);
     }
 
     /**
@@ -73,89 +80,76 @@ public class ClientTest {
         System.out.println("genererEcheancierSixMois");
         Client instance = new Client();
         instance.genererEcheancierSixMois();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getListeCompteBancaire method, of class Client.
+     * Test of declarerSinistre method, of class Client.
      */
     @Test
-    public void testGetListeCompteBancaire() {
-        System.out.println("getListeCompteBancaire");
+    public void testDeclarerSinistre_3args() {
+        System.out.println("declarerSinistre");
+        String date = "";
+        String titre = "";
+        String descri = "";
         Client instance = new Client();
-        List<CompteBancaire> expResult = null;
-        List<CompteBancaire> result = instance.getListeCompteBancaire();
+        instance.declarerSinistre(date, titre, descri);
+    }
+
+    /**
+     * Test of declarerSinistre method, of class Client.
+     */
+    @Test
+    public void testDeclarerSinistre_4args() {
+        System.out.println("declarerSinistre");
+        String date = "";
+        String titre = "";
+        String descri = "";
+        String image = "";
+        Client instance = new Client();
+        instance.declarerSinistre(date, titre, descri, image);
+    }
+
+    /**
+     * Test of resilierContratAuto method, of class Client.
+     */
+    @Test
+    public void testResilierContratAuto() {
+        System.out.println("resilierContratAuto");
+        Client instance = new Client();
+        instance.resilierContratAuto();
+    }
+
+    /**
+     * Test of resilierContratHabitat method, of class Client.
+     */
+    @Test
+    public void testResilierContratHabitat() {
+        System.out.println("resilierContratHabitat");
+        Client instance = new Client();
+        instance.resilierContratHabitat();
+    }
+
+    /**
+     * Test of getAssuranceAuto method, of class Client.
+     */
+    @Test
+    public void testGetAssuranceAuto() {
+        System.out.println("getAssuranceAuto");
+        Client instance = new Client();
+        AssuranceAuto expResult = null;
+        AssuranceAuto result = instance.getAssuranceAuto();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setListeCompteBancaire method, of class Client.
+     * Test of getAssuranceHabitat method, of class Client.
      */
     @Test
-    public void testSetListeCompteBancaire() {
-        System.out.println("setListeCompteBancaire");
-        List<CompteBancaire> listeCompteBancaire = null;
+    public void testGetAssuranceHabitat() {
+        System.out.println("getAssuranceHabitat");
         Client instance = new Client();
-        instance.setListeCompteBancaire(listeCompteBancaire);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getContact method, of class Client.
-     */
-    @Test
-    public void testGetContact() {
-        System.out.println("getContact");
-        Client instance = new Client();
-        Contact expResult = null;
-        Contact result = instance.getContact();
+        AssuranceHabitat expResult = null;
+        AssuranceHabitat result = instance.getAssuranceHabitat();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of setContact method, of class Client.
-     */
-    @Test
-    public void testSetContact() {
-        System.out.println("setContact");
-        Contact contact = null;
-        Client instance = new Client();
-        instance.setContact(contact);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getAssurance method, of class Client.
-     */
-    @Test
-    public void testGetAssurance() {
-        System.out.println("getAssurance");
-        Client instance = new Client();
-        Assurance expResult = null;
-        Assurance result = instance.getAssurance();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setAssurance method, of class Client.
-     */
-    @Test
-    public void testSetAssurance() {
-        System.out.println("setAssurance");
-        Assurance assurance = null;
-        Client instance = new Client();
-        instance.setAssurance(assurance);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
